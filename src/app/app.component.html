@@ -1,0 +1,78 @@
+
+<mat-toolbar color="primary"> Welcome to Nineleaps Family </mat-toolbar>
+  <div class="container">
+    <mat-card>
+    <mat-toolbar > Fill in the Details </mat-toolbar>
+  <div class="form">
+  <div class= "row">
+    <div class="col-sm-6">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="First Name" name="first name" ngModel>
+          </mat-form-field>
+    </div>
+    <div class="col-sm-6">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last Name" name="second name" ngModel>
+          </mat-form-field>
+    </div>
+</div>
+<div class= "row">
+    <div class="col-sm-6">
+        <mat-radio-group aria-label="Select an option">
+            <mat-label>Gender</mat-label>
+            <mat-radio-button value="M">Male </mat-radio-button>
+            <mat-radio-button value="F">Female</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="col-sm-6">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Place</mat-label>
+            <input type="text" placeholder="Select Place" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+    </div>
+</div>
+    <div class= "row">
+        <div class="col-sm-6">
+          <mat-label> Miles </mat-label>
+            <mat-slider
+            class="example-margin"
+            [max]="100"
+            [min]="1"
+            [step]="1"
+            [thumbLabel]="true">
+        </mat-slider>
+        </div>
+        <div class="col-sm-6">
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Date Of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+        </div>
+    </div>
+    <div class= "row">
+        <div class="col-sm-6">
+        <button mat-raised-button color="primary" > Submit </button>
+        </div>
+      </div>
+</div>
+</mat-card>
+</div>
+<hr>
+<div class="container">
+  <mat-card>
+      <mat-toolbar> Users </mat-toolbar>
+    <div class= "row" style="align-content: center">
+    <app-users-list></app-users-list>
+    </div>
+  </mat-card>
+</div>
+
